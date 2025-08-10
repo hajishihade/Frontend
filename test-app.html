@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test App Access</title>
+</head>
+<body>
+    <h1>Testing Furbio App</h1>
+    <p>Checking app status...</p>
+    <div id="status"></div>
+    <script>
+        fetch('http://localhost:5176/')
+            .then(response => {
+                document.getElementById('status').innerHTML = 
+                    `<p>✅ App is running on port 5176</p>
+                     <p>Status: ${response.status}</p>
+                     <a href="http://localhost:5176/" target="_blank">
+                        <button style="padding: 10px 20px; font-size: 16px; background: #4CAF50; color: white; border: none; cursor: pointer;">
+                            Open App in New Tab
+                        </button>
+                     </a>`;
+            })
+            .catch(error => {
+                document.getElementById('status').innerHTML = 
+                    `<p>❌ Error: ${error.message}</p>`;
+            });
+    </script>
+</body>
+</html>
