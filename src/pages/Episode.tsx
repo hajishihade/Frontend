@@ -338,6 +338,314 @@ const spointSequences: Record<string, any> = {
   }
 }
 
+// Specialized Table puzzles for each spoint
+const spointTables: Record<string, any> = {
+  'block-1': {
+    id: 'table-1',
+    title: 'Cell Types Comparison',
+    rowHeaders: ['Nucleus', 'Cell Wall', 'Size', 'Examples'],
+    columnHeaders: ['Prokaryotic', 'Eukaryotic'],
+    correctAnswers: [
+      ['Absent', 'Present'],
+      ['Present', 'Variable'],
+      ['1-5 μm', '10-100 μm'],
+      ['Bacteria', 'Animals/Plants']
+    ],
+    availableCells: [
+      'Present', 'Absent', 'Variable', '1-5 μm', '10-100 μm',
+      'Bacteria', 'Animals/Plants', 'Present'
+    ]
+  },
+  'block-2': {
+    id: 'table-2',
+    title: 'Mitochondria vs Chloroplast',
+    rowHeaders: ['Function', 'Location', 'Pigment', 'Product'],
+    columnHeaders: ['Mitochondria', 'Chloroplast'],
+    correctAnswers: [
+      ['Cellular respiration', 'Photosynthesis'],
+      ['All eukaryotes', 'Plants/Algae'],
+      ['None', 'Chlorophyll'],
+      ['ATP', 'Glucose']
+    ],
+    availableCells: [
+      'Cellular respiration', 'Photosynthesis', 'All eukaryotes', 'Plants/Algae',
+      'None', 'Chlorophyll', 'ATP', 'Glucose'
+    ]
+  },
+  'block-3': {
+    id: 'table-3',
+    title: 'ATP vs ADP',
+    rowHeaders: ['Full Name', 'Phosphates', 'Energy State', 'Role'],
+    columnHeaders: ['ATP', 'ADP'],
+    correctAnswers: [
+      ['Adenosine Triphosphate', 'Adenosine Diphosphate'],
+      ['3 phosphates', '2 phosphates'],
+      ['High energy', 'Low energy'],
+      ['Energy donor', 'Energy acceptor']
+    ],
+    availableCells: [
+      'Adenosine Triphosphate', 'Adenosine Diphosphate', '3 phosphates', '2 phosphates',
+      'High energy', 'Low energy', 'Energy donor', 'Energy acceptor'
+    ]
+  },
+  'block-4': {
+    id: 'table-4',
+    title: 'Mitochondrial Structure',
+    rowHeaders: ['Location', 'Function', 'Contains'],
+    columnHeaders: ['Outer Membrane', 'Inner Membrane', 'Matrix'],
+    correctAnswers: [
+      ['Outermost layer', 'Folded into cristae', 'Innermost space'],
+      ['Permeability barrier', 'ATP synthesis', 'Krebs cycle'],
+      ['Porins', 'ATP synthase', 'mtDNA']
+    ],
+    availableCells: [
+      'Outermost layer', 'Folded into cristae', 'Innermost space',
+      'Permeability barrier', 'ATP synthesis', 'Krebs cycle',
+      'Porins', 'ATP synthase', 'mtDNA'
+    ]
+  },
+  'block-5': {
+    id: 'table-5',
+    title: 'Nuclear Components',
+    rowHeaders: ['Structure', 'Function'],
+    columnHeaders: ['Nuclear Envelope', 'Nucleolus', 'Chromatin'],
+    correctAnswers: [
+      ['Double membrane', 'Dense region', 'DNA-protein complex'],
+      ['Separates nucleus', 'rRNA synthesis', 'Gene storage']
+    ],
+    availableCells: [
+      'Double membrane', 'Dense region', 'DNA-protein complex',
+      'Separates nucleus', 'rRNA synthesis', 'Gene storage'
+    ]
+  },
+  'block-6': {
+    id: 'table-6',
+    title: 'DNA Organization Levels',
+    rowHeaders: ['Structure', 'Size', 'Visibility'],
+    columnHeaders: ['DNA', 'Nucleosome', 'Chromosome'],
+    correctAnswers: [
+      ['Double helix', 'DNA + histones', 'Condensed chromatin'],
+      ['2 nm', '11 nm', 'Visible in microscope'],
+      ['Always present', 'Always present', 'During division']
+    ],
+    availableCells: [
+      'Double helix', 'DNA + histones', 'Condensed chromatin',
+      '2 nm', '11 nm', 'Visible in microscope',
+      'Always present', 'Always present', 'During division'
+    ]
+  },
+  'block-7': {
+    id: 'table-7',
+    title: 'Nuclear Transport',
+    rowHeaders: ['Direction', 'Cargo', 'Energy', 'Carrier'],
+    columnHeaders: ['Import', 'Export'],
+    correctAnswers: [
+      ['Into nucleus', 'Out of nucleus'],
+      ['Proteins', 'RNA/Proteins'],
+      ['RanGTP gradient', 'RanGTP gradient'],
+      ['Importin', 'Exportin']
+    ],
+    availableCells: [
+      'Into nucleus', 'Out of nucleus', 'Proteins', 'RNA/Proteins',
+      'RanGTP gradient', 'RanGTP gradient', 'Importin', 'Exportin'
+    ]
+  }
+}
+
+// Specialized Paragraph puzzles for each spoint
+const spointParagraphs: Record<string, any> = {
+  'block-1': {
+    id: 'para-1',
+    title: 'Cell Biology Fundamentals',
+    text: 'Cell biology is the study of _____ structure and function. The _____ is considered the basic unit of life. All living organisms are composed of one or more _____. There are two main types: _____ cells (without a nucleus) and _____ cells (with a nucleus). The cell theory states that all cells come from _____ cells.',
+    blanks: ['cell', 'cell', 'cells', 'prokaryotic', 'eukaryotic', 'pre-existing'],
+    availableWords: ['cell', 'cells', 'prokaryotic', 'eukaryotic', 'pre-existing', 'mitochondria', 'DNA', 'protein']
+  },
+  'block-2': {
+    id: 'para-2',
+    title: 'The Powerhouse of the Cell',
+    text: 'The _____ is known as the powerhouse of the cell because it produces _____ through cellular _____. This organelle has a unique _____ membrane structure. The inner membrane is folded into _____ which increase the surface area for ATP production. Mitochondria contain their own _____, suggesting they evolved from ancient bacteria.',
+    blanks: ['mitochondria', 'ATP', 'respiration', 'double', 'cristae', 'DNA'],
+    availableWords: ['mitochondria', 'ATP', 'respiration', 'double', 'cristae', 'DNA', 'nucleus', 'single', 'ribosomes']
+  },
+  'block-3': {
+    id: 'para-3',
+    title: 'Energy Currency of Cells',
+    text: '_____ stands for Adenosine Triphosphate and serves as the primary _____ currency of cells. When ATP loses a phosphate group, it becomes _____ (Adenosine Diphosphate). This process releases _____ that cells use for various metabolic processes. The _____ between ATP and ADP is crucial for cellular energy transfer. ATP is primarily produced in the _____ during cellular respiration.',
+    blanks: ['ATP', 'energy', 'ADP', 'energy', 'conversion', 'mitochondria'],
+    availableWords: ['ATP', 'energy', 'ADP', 'conversion', 'mitochondria', 'glucose', 'protein', 'nucleus']
+  },
+  'block-4': {
+    id: 'para-4',
+    title: 'Mitochondrial Architecture',
+    text: 'The mitochondrion has a complex structure with an _____ membrane and an _____ membrane. The space between these membranes is called the _____ space. The innermost compartment is the _____, which contains enzymes for the _____ cycle. The inner membrane contains _____ synthase complexes that produce ATP. This compartmentalization allows for efficient energy production.',
+    blanks: ['outer', 'inner', 'intermembrane', 'matrix', 'Krebs', 'ATP'],
+    availableWords: ['outer', 'inner', 'intermembrane', 'matrix', 'Krebs', 'ATP', 'nuclear', 'cytoplasm', 'Calvin']
+  },
+  'block-5': {
+    id: 'para-5',
+    title: 'Nuclear Organization',
+    text: 'The _____ is the control center of eukaryotic cells. It is surrounded by a double membrane called the nuclear _____. Within the nucleus, DNA is organized with proteins into _____. The _____ is a dense region where ribosomal RNA is synthesized. Nuclear _____ allow transport between the nucleus and cytoplasm. During cell division, chromatin condenses into visible _____.',
+    blanks: ['nucleus', 'envelope', 'chromatin', 'nucleolus', 'pores', 'chromosomes'],
+    availableWords: ['nucleus', 'envelope', 'chromatin', 'nucleolus', 'pores', 'chromosomes', 'membrane', 'mitochondria', 'genes']
+  },
+  'block-6': {
+    id: 'para-6',
+    title: 'DNA Packaging',
+    text: 'DNA packaging involves multiple levels of organization. The DNA double _____ wraps around _____ proteins to form nucleosomes. These "beads on a string" structures further coil into a _____ nm chromatin fiber. Higher-order _____ create more compact structures. During cell division, chromatin reaches maximum condensation as _____. This hierarchical packaging allows meters of DNA to fit into the microscopic _____.',
+    blanks: ['helix', 'histone', '30', 'folding', 'chromosomes', 'nucleus'],
+    availableWords: ['helix', 'histone', '30', 'folding', 'chromosomes', 'nucleus', 'strand', '20', 'cytoplasm']
+  },
+  'block-7': {
+    id: 'para-7',
+    title: 'Nuclear Transport Mechanisms',
+    text: 'Nuclear transport is highly regulated through nuclear _____ complexes. Proteins destined for the nucleus contain nuclear _____ signals. These proteins bind to _____ receptors for import. The small GTPase _____ regulates transport directionality. Export from the nucleus uses _____ receptors. The _____ gradient between nucleus and cytoplasm provides energy for transport.',
+    blanks: ['pore', 'localization', 'importin', 'Ran', 'exportin', 'RanGTP'],
+    availableWords: ['pore', 'localization', 'importin', 'Ran', 'exportin', 'RanGTP', 'membrane', 'karyopherin', 'ATP']
+  }
+}
+
+// Specialized Venn Diagram puzzles for each spoint
+const spointVennDiagrams: Record<string, any> = {
+  'block-1': {
+    id: 'venn-1',
+    title: 'Cell Types Classification',
+    circles: [
+      { id: 'prokaryotes', label: 'Prokaryotes', color: '#3b82f6' },
+      { id: 'eukaryotes', label: 'Eukaryotes', color: '#10b981' }
+    ],
+    correctPlacements: {
+      'prokaryotes': ['No nucleus', 'Circular DNA', 'Smaller size'],
+      'eukaryotes': ['Has nucleus', 'Linear DNA', 'Membrane organelles'],
+      'prokaryotes-eukaryotes': ['Ribosomes', 'Cell membrane', 'Cytoplasm'],  // Overlap
+      'outside': ['Viruses', 'Prions']  // Neither category
+    },
+    availableItems: [
+      'No nucleus', 'Has nucleus', 'Circular DNA', 'Linear DNA', 'Ribosomes',
+      'Cell membrane', 'Cytoplasm', 'Membrane organelles', 'Smaller size',
+      'Viruses', 'Prions'
+    ]
+  },
+  'block-2': {
+    id: 'venn-2',
+    title: 'Cellular Respiration vs Photosynthesis',
+    circles: [
+      { id: 'respiration', label: 'Cellular Respiration', color: '#ef4444' },
+      { id: 'photosynthesis', label: 'Photosynthesis', color: '#22c55e' }
+    ],
+    correctPlacements: {
+      'respiration': ['Consumes O2', 'Produces CO2', 'Breaks glucose'],
+      'photosynthesis': ['Produces O2', 'Consumes CO2', 'Makes glucose'],
+      'respiration-photosynthesis': ['ATP synthesis', 'Electron transport', 'Occurs in organelles'],
+      'outside': ['Fermentation', 'Protein synthesis']
+    },
+    availableItems: [
+      'Consumes O2', 'Produces O2', 'Produces CO2', 'Consumes CO2',
+      'ATP synthesis', 'Electron transport', 'Breaks glucose', 'Makes glucose',
+      'Occurs in organelles', 'Fermentation', 'Protein synthesis'
+    ]
+  },
+  'block-3': {
+    id: 'venn-3',
+    title: 'ATP, ADP, and AMP',
+    circles: [
+      { id: 'atp', label: 'ATP', color: '#8b5cf6' },
+      { id: 'adp', label: 'ADP', color: '#f59e0b' },
+      { id: 'amp', label: 'AMP', color: '#06b6d4' }
+    ],
+    correctPlacements: {
+      'atp': ['3 phosphates', 'Highest energy'],
+      'adp': ['2 phosphates', 'Medium energy'],
+      'amp': ['1 phosphate', 'Lowest energy'],
+      'atp-adp': ['Energy transfer'],
+      'adp-amp': ['Phosphate loss'],
+      'atp-adp-amp': ['Adenosine base', 'Ribose sugar'],  // All three overlap
+      'outside': ['GTP', 'NAD+']
+    },
+    availableItems: [
+      '3 phosphates', '2 phosphates', '1 phosphate', 'Highest energy',
+      'Medium energy', 'Lowest energy', 'Energy transfer', 'Phosphate loss',
+      'Adenosine base', 'Ribose sugar', 'GTP', 'NAD+'
+    ]
+  },
+  'block-4': {
+    id: 'venn-4',
+    title: 'Mitochondrial Membranes',
+    circles: [
+      { id: 'outer', label: 'Outer Membrane', color: '#ec4899' },
+      { id: 'inner', label: 'Inner Membrane', color: '#14b8a6' }
+    ],
+    correctPlacements: {
+      'outer': ['Smooth surface', 'Porins', 'Permeable to ions'],
+      'inner': ['Cristae folds', 'ATP synthase', 'Impermeable barrier'],
+      'outer-inner': ['Phospholipid bilayer', 'Protein complexes', 'Selective transport'],
+      'outside': ['Nuclear pores', 'Ribosomes']
+    },
+    availableItems: [
+      'Smooth surface', 'Cristae folds', 'Porins', 'ATP synthase',
+      'Phospholipid bilayer', 'Protein complexes', 'Permeable to ions',
+      'Impermeable barrier', 'Selective transport', 'Nuclear pores', 'Ribosomes'
+    ]
+  },
+  'block-5': {
+    id: 'venn-5',
+    title: 'Nuclear Components',
+    circles: [
+      { id: 'nucleoplasm', label: 'Nucleoplasm', color: '#0ea5e9' },
+      { id: 'nucleolus', label: 'Nucleolus', color: '#f97316' }
+    ],
+    correctPlacements: {
+      'nucleoplasm': ['Nuclear matrix', 'Chromatin fibers', 'Nuclear speckles'],
+      'nucleolus': ['rRNA genes', 'Ribosome assembly', 'Dense structure'],
+      'nucleoplasm-nucleolus': ['RNA processing', 'Proteins', 'Enzymes'],
+      'outside': ['Cytoplasm', 'Endoplasmic reticulum']
+    },
+    availableItems: [
+      'Nuclear matrix', 'Chromatin fibers', 'rRNA genes', 'Ribosome assembly',
+      'RNA processing', 'Proteins', 'Enzymes', 'Dense structure',
+      'Nuclear speckles', 'Cytoplasm', 'Endoplasmic reticulum'
+    ]
+  },
+  'block-6': {
+    id: 'venn-6',
+    title: 'DNA vs RNA',
+    circles: [
+      { id: 'dna', label: 'DNA', color: '#dc2626' },
+      { id: 'rna', label: 'RNA', color: '#2563eb' }
+    ],
+    correctPlacements: {
+      'dna': ['Double helix', 'Thymine', 'Deoxyribose', 'Stable'],
+      'rna': ['Single strand', 'Uracil', 'Ribose', 'Less stable'],
+      'dna-rna': ['Nucleotides', 'Phosphate backbone', 'Genetic information'],
+      'outside': ['Proteins', 'Lipids']
+    },
+    availableItems: [
+      'Double helix', 'Single strand', 'Thymine', 'Uracil',
+      'Deoxyribose', 'Ribose', 'Nucleotides', 'Phosphate backbone',
+      'Stable', 'Less stable', 'Genetic information', 'Proteins', 'Lipids'
+    ]
+  },
+  'block-7': {
+    id: 'venn-7',
+    title: 'Import vs Export Transport',
+    circles: [
+      { id: 'import', label: 'Nuclear Import', color: '#059669' },
+      { id: 'export', label: 'Nuclear Export', color: '#7c3aed' }
+    ],
+    correctPlacements: {
+      'import': ['Importin', 'NLS signal', 'Proteins enter'],
+      'export': ['Exportin', 'NES signal', 'RNA exits'],
+      'import-export': ['RanGTP gradient', 'Nuclear pores', 'Energy required'],
+      'outside': ['Passive diffusion', 'Endocytosis']
+    },
+    availableItems: [
+      'Importin', 'Exportin', 'NLS signal', 'NES signal',
+      'RanGTP gradient', 'Nuclear pores', 'Proteins enter', 'RNA exits',
+      'Energy required', 'Passive diffusion', 'Endocytosis'
+    ]
+  }
+}
+
 // Sample content with granular blocks that map to spoints
 const sampleContent = {
   studyContent: {
@@ -464,7 +772,25 @@ export default function EpisodePage() {
   const [sequenceChecked, setSequenceChecked] = useState(false)
   const [draggedItem, setDraggedItem] = useState<string | null>(null)
   const [draggedFromIndex, setDraggedFromIndex] = useState<number | null>(null)
-  const [draggedFromArea, setDraggedFromArea] = useState<'available' | 'sequence' | null>(null)
+  const [draggedFromArea, setDraggedFromArea] = useState<'available' | 'sequence' | 'table' | null>(null)
+  
+  // Table quiz states
+  const [userTable, setUserTable] = useState<(string | null)[][]>([])  // 2D array for table cells
+  const [availableTableItems, setAvailableTableItems] = useState<string[]>([])
+  const [tableChecked, setTableChecked] = useState(false)
+  const [draggedFromCell, setDraggedFromCell] = useState<{row: number, col: number} | null>(null)
+  
+  // Paragraph quiz states
+  const [userParagraphAnswers, setUserParagraphAnswers] = useState<(string | null)[]>([])  // Array for blank answers
+  const [availableParagraphWords, setAvailableParagraphWords] = useState<string[]>([])
+  const [paragraphChecked, setParagraphChecked] = useState(false)
+  const [draggedFromBlankIndex, setDraggedFromBlankIndex] = useState<number | null>(null)
+  
+  // Venn diagram quiz states
+  const [vennPlacements, setVennPlacements] = useState<Record<string, string[]>>({})  // Region ID to items
+  const [availableVennItems, setAvailableVennItems] = useState<string[]>([])
+  const [vennChecked, setVennChecked] = useState(false)
+  const [draggedFromRegion, setDraggedFromRegion] = useState<string | null>(null)
 
   // Initialize Editor.js for study mode
   useEffect(() => {
@@ -1741,6 +2067,18 @@ export default function EpisodePage() {
       return renderSequenceMode()
     }
     
+    if (selectedQuizType === 'Table') {
+      return renderTableMode()
+    }
+    
+    if (selectedQuizType === 'Paragraph') {
+      return renderParagraphMode()
+    }
+    
+    if (selectedQuizType === 'Venn Diagram') {
+      return renderVennDiagramMode()
+    }
+    
     // Default to MCQ mode
     const selectedSpointId = currentSpoint || 'block-1'
     const question = spointMCQs[selectedSpointId] || spointMCQs['block-1']
@@ -2170,6 +2508,86 @@ export default function EpisodePage() {
           setUserSequence([null, null, null, null, null])  // Reset to 5 empty slots
           setSequenceChecked(false)
         }
+      }
+    }
+  }, [currentSpoint, selectedQuizType])
+  
+  // Initialize table items when entering Table mode or changing topics
+  useEffect(() => {
+    if (selectedQuizType === 'Table') {
+      const spointId = currentSpoint || 'block-1'
+      const table = spointTables[spointId]
+      
+      if (table && table.availableCells) {
+        // Initialize empty table based on size
+        const rows = table.rowHeaders.length
+        const cols = table.columnHeaders.length
+        const emptyTable = Array(rows).fill(null).map(() => Array(cols).fill(null))
+        setUserTable(emptyTable)
+        
+        // Shuffle available items
+        const shuffled = [...table.availableCells].sort(() => Math.random() - 0.5)
+        setAvailableTableItems(shuffled)
+        setTableChecked(false)
+      }
+    }
+  }, [currentSpoint, selectedQuizType])
+  
+  // Initialize paragraph items when entering Paragraph mode or changing topics
+  useEffect(() => {
+    if (selectedQuizType === 'Paragraph') {
+      const spointId = currentSpoint || 'block-1'
+      const paragraph = spointParagraphs[spointId]
+      
+      if (paragraph && paragraph.blanks) {
+        // Initialize empty answers array based on number of blanks
+        const emptyAnswers = Array(paragraph.blanks.length).fill(null)
+        setUserParagraphAnswers(emptyAnswers)
+        
+        // Shuffle available words
+        const shuffled = [...paragraph.availableWords].sort(() => Math.random() - 0.5)
+        setAvailableParagraphWords(shuffled)
+        setParagraphChecked(false)
+      }
+    }
+  }, [currentSpoint, selectedQuizType])
+  
+  // Initialize Venn diagram items when entering Venn mode or changing topics
+  useEffect(() => {
+    if (selectedQuizType === 'Venn Diagram') {
+      const spointId = currentSpoint || 'block-1'
+      const vennDiagram = spointVennDiagrams[spointId]
+      
+      if (vennDiagram) {
+        // Initialize empty placements for all regions
+        const emptyPlacements: Record<string, string[]> = {}
+        
+        // Add regions for each circle
+        vennDiagram.circles.forEach((circle: any) => {
+          emptyPlacements[circle.id] = []
+        })
+        
+        // Add overlap regions based on number of circles
+        if (vennDiagram.circles.length === 2) {
+          emptyPlacements[`${vennDiagram.circles[0].id}-${vennDiagram.circles[1].id}`] = []
+        } else if (vennDiagram.circles.length === 3) {
+          // All 2-way overlaps
+          emptyPlacements[`${vennDiagram.circles[0].id}-${vennDiagram.circles[1].id}`] = []
+          emptyPlacements[`${vennDiagram.circles[0].id}-${vennDiagram.circles[2].id}`] = []
+          emptyPlacements[`${vennDiagram.circles[1].id}-${vennDiagram.circles[2].id}`] = []
+          // 3-way overlap
+          emptyPlacements[`${vennDiagram.circles[0].id}-${vennDiagram.circles[1].id}-${vennDiagram.circles[2].id}`] = []
+        }
+        
+        // Add outside region
+        emptyPlacements['outside'] = []
+        
+        setVennPlacements(emptyPlacements)
+        
+        // Shuffle available items
+        const shuffled = [...vennDiagram.availableItems].sort(() => Math.random() - 0.5)
+        setAvailableVennItems(shuffled)
+        setVennChecked(false)
       }
     }
   }, [currentSpoint, selectedQuizType])
@@ -2707,6 +3125,1692 @@ export default function EpisodePage() {
                       const correctIndex = sequence.items.indexOf(item)
                       return correctIndex === index
                     }).length} / {sequence.items.length} correct positions
+                  </Typography>
+                </Box>
+              </Paper>
+            )}
+          </Box>
+        </Box>
+        
+        {/* Bottom toolbar */}
+        {renderToolbar(false)}
+      </Box>
+    )
+  }
+
+  const renderTableMode = () => {
+    const selectedSpointId = currentSpoint || 'block-1'
+    const table = spointTables[selectedSpointId] || spointTables['block-1']
+    
+    if (!table) {
+      return (
+        <Box sx={{ 
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          background: darkMode ? '#0a0a0a' : '#fafafa',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          <Typography variant="h6" sx={{ color: darkMode ? '#666' : '#999' }}>
+            Please select a topic from the sidebar
+          </Typography>
+        </Box>
+      )
+    }
+    
+    const handleTableDragStart = (e: React.DragEvent, item: string, source: 'available' | 'table', cellPos?: {row: number, col: number}) => {
+      e.dataTransfer.effectAllowed = 'move'
+      setDraggedItem(item)
+      setDraggedFromArea(source)
+      if (cellPos) {
+        setDraggedFromCell(cellPos)
+      } else {
+        setDraggedFromCell(null)
+      }
+    }
+    
+    const handleTableDragOver = (e: React.DragEvent) => {
+      e.preventDefault()
+      e.dataTransfer.dropEffect = 'move'
+    }
+    
+    const handleTableDragEnd = () => {
+      setDraggedItem(null)
+      setDraggedFromArea(null)
+      setDraggedFromCell(null)
+    }
+    
+    const handleDropToTableCell = (e: React.DragEvent, row: number, col: number) => {
+      e.preventDefault()
+      e.stopPropagation()
+      
+      if (!draggedItem) return
+      
+      const newTable = userTable.map(r => [...r])
+      const currentCellContent = newTable[row][col]
+      
+      if (draggedFromArea === 'available') {
+        // Moving from available to table cell
+        let newAvailable = availableTableItems.filter(item => item !== draggedItem)
+        
+        // If cell is occupied, move its content back to available
+        if (currentCellContent) {
+          newAvailable.push(currentCellContent)
+        }
+        
+        // Place dragged item in the cell
+        newTable[row][col] = draggedItem
+        
+        setAvailableTableItems(newAvailable)
+        setUserTable(newTable)
+      } else if (draggedFromArea === 'table' && draggedFromCell) {
+        // Moving from one cell to another - swap them
+        const fromRow = draggedFromCell.row
+        const fromCol = draggedFromCell.col
+        
+        // Swap cells
+        newTable[row][col] = draggedItem
+        newTable[fromRow][fromCol] = currentCellContent
+        
+        setUserTable(newTable)
+      }
+      
+      // Reset drag state
+      setDraggedItem(null)
+      setDraggedFromArea(null)
+      setDraggedFromCell(null)
+    }
+    
+    const handleDropToAvailableTable = (e: React.DragEvent) => {
+      e.preventDefault()
+      
+      if (!draggedItem || draggedFromArea !== 'table' || !draggedFromCell) return
+      
+      // Moving from table back to available
+      const newTable = userTable.map(r => [...r])
+      newTable[draggedFromCell.row][draggedFromCell.col] = null
+      const newAvailable = [...availableTableItems, draggedItem]
+      
+      setUserTable(newTable)
+      setAvailableTableItems(newAvailable)
+      
+      // Reset drag state
+      setDraggedItem(null)
+      setDraggedFromArea(null)
+      setDraggedFromCell(null)
+    }
+    
+    const handleCheckTable = () => {
+      setTableChecked(true)
+    }
+    
+    const handleResetTable = () => {
+      const rows = table.rowHeaders.length
+      const cols = table.columnHeaders.length
+      const emptyTable = Array(rows).fill(null).map(() => Array(cols).fill(null))
+      setUserTable(emptyTable)
+      
+      const shuffled = [...table.availableCells].sort(() => Math.random() - 0.5)
+      setAvailableTableItems(shuffled)
+      setTableChecked(false)
+    }
+    
+    const isCellCorrect = (row: number, col: number) => {
+      if (!tableChecked) return null
+      const userAnswer = userTable[row][col]
+      const correctAnswer = table.correctAnswers[row][col]
+      return userAnswer === correctAnswer
+    }
+    
+    const getAllCellsFilled = () => {
+      return userTable.every(row => row.every(cell => cell !== null))
+    }
+    
+    return (
+      <Box sx={{ 
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        background: darkMode ? '#0a0a0a' : '#fafafa'
+      }}>
+        <Box sx={{ 
+          flex: 1,
+          p: 3,
+          overflow: 'auto'
+        }}>
+          <Box sx={{ 
+            width: '100%', 
+            maxWidth: 1000,
+            mx: 'auto'
+          }}>
+            {/* Topic indicator */}
+            <Box sx={{ mb: 3, textAlign: 'center' }}>
+              <Typography variant="caption" sx={{ color: darkMode ? '#666' : '#999' }}>
+                Topic: {contentHierarchy[0].children?.flatMap(s => s.children || []).find(c => c.id === selectedSpointId)?.name || 'Select a topic'}
+              </Typography>
+            </Box>
+            
+            {/* Table Title */}
+            <Typography variant="h5" sx={{ 
+              fontWeight: 600,
+              color: darkMode ? 'white' : '#1a1a1a',
+              mb: 3,
+              textAlign: 'center'
+            }}>
+              {table.title}
+            </Typography>
+            
+            {/* Table Area */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 3,
+                background: darkMode ? '#1a1a1a' : 'white',
+                border: `1px solid ${darkMode ? '#333' : '#e5e5e5'}`,
+                borderRadius: 2,
+                mb: 3,
+                overflowX: 'auto'
+              }}
+            >
+              <table style={{ 
+                width: '100%', 
+                borderCollapse: 'separate',
+                borderSpacing: '8px'
+              }}>
+                <thead>
+                  <tr>
+                    <th style={{ 
+                      padding: '12px',
+                      background: darkMode ? '#2a2a2a' : '#f5f5f5',
+                      border: `2px solid ${darkMode ? '#444' : '#ddd'}`,
+                      borderRadius: '4px',
+                      color: darkMode ? '#ddd' : '#333',
+                      fontWeight: 600,
+                      minWidth: '120px'
+                    }}>
+                      {/* Top-left corner cell (empty) */}
+                    </th>
+                    {table.columnHeaders.map((header: string, index: number) => (
+                      <th key={index} style={{ 
+                        padding: '12px',
+                        background: darkMode ? '#2a2a2a' : '#f5f5f5',
+                        border: `2px solid ${darkMode ? '#444' : '#ddd'}`,
+                        borderRadius: '4px',
+                        color: darkMode ? '#ddd' : '#333',
+                        fontWeight: 600,
+                        minWidth: '150px',
+                        textAlign: 'center'
+                      }}>
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {table.rowHeaders.map((rowHeader: string, rowIndex: number) => (
+                    <tr key={rowIndex}>
+                      <td style={{ 
+                        padding: '12px',
+                        background: darkMode ? '#2a2a2a' : '#f5f5f5',
+                        border: `2px solid ${darkMode ? '#444' : '#ddd'}`,
+                        borderRadius: '4px',
+                        color: darkMode ? '#ddd' : '#333',
+                        fontWeight: 600,
+                        textAlign: 'center'
+                      }}>
+                        {rowHeader}
+                      </td>
+                      {table.columnHeaders.map((_: string, colIndex: number) => (
+                        <td 
+                          key={colIndex}
+                          onDragOver={handleTableDragOver}
+                          onDrop={(e) => handleDropToTableCell(e, rowIndex, colIndex)}
+                          style={{ 
+                            padding: '8px',
+                            minHeight: '60px',
+                            minWidth: '150px',
+                            position: 'relative'
+                          }}
+                        >
+                          {userTable[rowIndex] && userTable[rowIndex][colIndex] ? (
+                            <Paper
+                              draggable
+                              onDragStart={(e) => handleTableDragStart(e, userTable[rowIndex][colIndex]!, 'table', {row: rowIndex, col: colIndex})}
+                              onDragEnd={handleTableDragEnd}
+                              elevation={1}
+                              sx={{
+                                p: 1.5,
+                                cursor: 'move',
+                                textAlign: 'center',
+                                background: tableChecked
+                                  ? isCellCorrect(rowIndex, colIndex)
+                                    ? 'rgba(34, 197, 94, 0.1)'
+                                    : 'rgba(239, 68, 68, 0.1)'
+                                  : darkMode ? '#2a2a2a' : 'white',
+                                border: `2px solid ${
+                                  tableChecked
+                                    ? isCellCorrect(rowIndex, colIndex)
+                                      ? '#22c55e'
+                                      : '#ef4444'
+                                    : darkMode ? '#444' : '#e5e5e5'
+                                }`,
+                                transition: 'all 0.2s ease',
+                                '&:hover': {
+                                  transform: 'scale(1.02)',
+                                  background: darkMode ? '#333' : '#f5f5f5'
+                                },
+                                '&:active': {
+                                  opacity: 0.5
+                                }
+                              }}
+                            >
+                              <Typography variant="body2" sx={{ 
+                                color: darkMode ? 'white' : '#1a1a1a',
+                                fontSize: 12,
+                                fontWeight: 500
+                              }}>
+                                {userTable[rowIndex][colIndex]}
+                              </Typography>
+                            </Paper>
+                          ) : (
+                            <Box
+                              sx={{
+                                height: '50px',
+                                border: `2px dashed ${draggedItem ? '#3b82f6' : (darkMode ? '#555' : '#ccc')}`,
+                                borderRadius: 1,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                background: draggedItem 
+                                  ? 'rgba(59, 130, 246, 0.05)' 
+                                  : darkMode ? 'rgba(255,255,255,0.02)' : 'rgba(0,0,0,0.02)',
+                                transition: 'all 0.2s ease'
+                              }}
+                            >
+                              <Typography sx={{ 
+                                color: darkMode ? '#444' : '#bbb',
+                                fontSize: 11
+                              }}>
+                                Drop here
+                              </Typography>
+                            </Box>
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </Paper>
+            
+            {/* Available Items */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 3,
+                background: darkMode ? '#1a1a1a' : 'white',
+                border: `1px solid ${darkMode ? '#333' : '#e5e5e5'}`,
+                borderRadius: 2,
+                mb: 3
+              }}
+            >
+              <Typography variant="body2" sx={{ mb: 2, color: darkMode ? '#999' : '#666' }}>
+                Available items:
+              </Typography>
+              <Box 
+                sx={{ 
+                  display: 'flex',
+                  gap: 2,
+                  flexWrap: 'wrap',
+                  minHeight: 60,
+                  p: 2,
+                  border: `2px dashed ${darkMode ? '#444' : '#ddd'}`,
+                  borderRadius: 1,
+                  background: darkMode ? '#0a0a0a' : '#f9f9f9'
+                }}
+                onDragOver={handleTableDragOver}
+                onDrop={handleDropToAvailableTable}
+              >
+                {availableTableItems.length === 0 && (
+                  <Typography sx={{ 
+                    color: darkMode ? '#555' : '#aaa',
+                    fontStyle: 'italic',
+                    width: '100%',
+                    textAlign: 'center'
+                  }}>
+                    All items have been placed
+                  </Typography>
+                )}
+                {availableTableItems.map((item, index) => (
+                  <Paper
+                    key={index}
+                    draggable
+                    onDragStart={(e) => handleTableDragStart(e, item, 'available')}
+                    onDragEnd={handleTableDragEnd}
+                    elevation={1}
+                    sx={{
+                      p: 1.5,
+                      minWidth: 120,
+                      cursor: 'move',
+                      background: darkMode ? '#2a2a2a' : 'white',
+                      border: `2px solid ${darkMode ? '#444' : '#e5e5e5'}`,
+                      transition: 'all 0.2s ease',
+                      '&:hover': {
+                        background: darkMode ? '#333' : '#f5f5f5',
+                        transform: 'scale(1.02)',
+                        borderColor: darkMode ? '#666' : '#999'
+                      },
+                      '&:active': {
+                        opacity: 0.5
+                      }
+                    }}
+                  >
+                    <Typography variant="body2" sx={{ 
+                      color: darkMode ? 'white' : '#1a1a1a',
+                      fontWeight: 500,
+                      fontSize: 12,
+                      textAlign: 'center'
+                    }}>
+                      {item}
+                    </Typography>
+                  </Paper>
+                ))}
+              </Box>
+            </Paper>
+            
+            {/* Check/Reset Buttons */}
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+              {!tableChecked ? (
+                <Button
+                  variant="contained"
+                  onClick={handleCheckTable}
+                  disabled={!getAllCellsFilled()}
+                  sx={{
+                    background: darkMode ? 'white' : '#000',
+                    color: darkMode ? '#000' : 'white',
+                    textTransform: 'none',
+                    px: 4,
+                    '&:hover': {
+                      background: darkMode ? '#f5f5f5' : '#1a1a1a'
+                    },
+                    '&.Mui-disabled': {
+                      background: darkMode ? '#333' : '#e5e5e5',
+                      color: darkMode ? '#666' : '#999'
+                    }
+                  }}
+                >
+                  Check Answer
+                </Button>
+              ) : (
+                <>
+                  <Button
+                    variant="outlined"
+                    onClick={handleResetTable}
+                    sx={{
+                      borderColor: darkMode ? '#666' : '#999',
+                      color: darkMode ? '#999' : '#666',
+                      textTransform: 'none',
+                      px: 4
+                    }}
+                  >
+                    Try Again
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => {
+                      // Move to next topic
+                      const allSpoints = contentHierarchy[0].children?.flatMap(s => s.children || []) || []
+                      const currentIndex = allSpoints.findIndex(s => s.id === currentSpoint)
+                      if (currentIndex < allSpoints.length - 1) {
+                        const nextSpoint = allSpoints[currentIndex + 1]
+                        setCurrentSpoint(nextSpoint.id)
+                        // States will be reset by useEffect
+                      }
+                    }}
+                    sx={{
+                      background: darkMode ? 'white' : '#000',
+                      color: darkMode ? '#000' : 'white',
+                      textTransform: 'none',
+                      px: 4,
+                      '&:hover': {
+                        background: darkMode ? '#f5f5f5' : '#1a1a1a'
+                      }
+                    }}
+                  >
+                    Next Topic
+                  </Button>
+                </>
+              )}
+            </Box>
+            
+            {/* Show correct answer table when checked */}
+            {tableChecked && (
+              <Paper
+                elevation={2}
+                sx={{
+                  p: 3,
+                  mt: 3,
+                  background: darkMode ? '#0d7a2e' : '#e8f5e9',
+                  border: `2px solid #22c55e`,
+                  borderRadius: 2
+                }}
+              >
+                <Typography variant="h6" sx={{ mb: 2, color: darkMode ? 'white' : '#1b5e20', fontWeight: 600 }}>
+                  ✓ Correct Answer:
+                </Typography>
+                <table style={{ 
+                  width: '100%', 
+                  borderCollapse: 'separate',
+                  borderSpacing: '8px'
+                }}>
+                  <thead>
+                    <tr>
+                      <th style={{ 
+                        padding: '10px',
+                        background: darkMode ? '#1a1a1a' : 'white',
+                        border: '2px solid #22c55e',
+                        borderRadius: '4px',
+                        color: '#22c55e',
+                        fontWeight: 600
+                      }}></th>
+                      {table.columnHeaders.map((header: string, index: number) => (
+                        <th key={index} style={{ 
+                          padding: '10px',
+                          background: darkMode ? '#1a1a1a' : 'white',
+                          border: '2px solid #22c55e',
+                          borderRadius: '4px',
+                          color: '#22c55e',
+                          fontWeight: 600,
+                          textAlign: 'center'
+                        }}>
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {table.rowHeaders.map((rowHeader: string, rowIndex: number) => (
+                      <tr key={rowIndex}>
+                        <td style={{ 
+                          padding: '10px',
+                          background: darkMode ? '#1a1a1a' : 'white',
+                          border: '2px solid #22c55e',
+                          borderRadius: '4px',
+                          color: '#22c55e',
+                          fontWeight: 600,
+                          textAlign: 'center'
+                        }}>
+                          {rowHeader}
+                        </td>
+                        {table.correctAnswers[rowIndex].map((answer: string, colIndex: number) => (
+                          <td key={colIndex} style={{ 
+                            padding: '10px',
+                            background: darkMode ? '#1a1a1a' : 'white',
+                            border: '2px solid #22c55e',
+                            borderRadius: '4px',
+                            textAlign: 'center'
+                          }}>
+                            <Typography variant="body2" sx={{ 
+                              color: darkMode ? '#22c55e' : '#1b5e20',
+                              fontWeight: 500,
+                              fontSize: 12
+                            }}>
+                              {answer}
+                            </Typography>
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                
+                {/* Score display */}
+                <Box sx={{ mt: 2, textAlign: 'center' }}>
+                  <Typography variant="body2" sx={{ 
+                    color: darkMode ? 'white' : '#1b5e20',
+                    fontWeight: 500
+                  }}>
+                    {userTable.flat().filter((cell, index) => {
+                      const row = Math.floor(index / table.columnHeaders.length)
+                      const col = index % table.columnHeaders.length
+                      return cell === table.correctAnswers[row][col]
+                    }).length} / {table.rowHeaders.length * table.columnHeaders.length} correct cells
+                  </Typography>
+                </Box>
+              </Paper>
+            )}
+          </Box>
+        </Box>
+        
+        {/* Bottom toolbar */}
+        {renderToolbar(false)}
+      </Box>
+    )
+  }
+
+  const renderParagraphMode = () => {
+    const selectedSpointId = currentSpoint || 'block-1'
+    const paragraph = spointParagraphs[selectedSpointId] || spointParagraphs['block-1']
+    
+    if (!paragraph) {
+      return (
+        <Box sx={{ 
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          background: darkMode ? '#0a0a0a' : '#fafafa',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          <Typography variant="h6" sx={{ color: darkMode ? '#666' : '#999' }}>
+            Please select a topic from the sidebar
+          </Typography>
+        </Box>
+      )
+    }
+    
+    const handleParagraphDragStart = (e: React.DragEvent, word: string, source: 'available' | 'blank', blankIndex?: number) => {
+      e.dataTransfer.effectAllowed = 'move'
+      setDraggedItem(word)
+      setDraggedFromArea(source === 'blank' ? 'table' : 'available')  // Reuse draggedFromArea
+      if (blankIndex !== undefined) {
+        setDraggedFromBlankIndex(blankIndex)
+      } else {
+        setDraggedFromBlankIndex(null)
+      }
+    }
+    
+    const handleParagraphDragOver = (e: React.DragEvent) => {
+      e.preventDefault()
+      e.dataTransfer.dropEffect = 'move'
+    }
+    
+    const handleParagraphDragEnd = () => {
+      setDraggedItem(null)
+      setDraggedFromArea(null)
+      setDraggedFromBlankIndex(null)
+    }
+    
+    const handleDropToBlank = (e: React.DragEvent, blankIndex: number) => {
+      e.preventDefault()
+      e.stopPropagation()
+      
+      if (!draggedItem) return
+      
+      const newAnswers = [...userParagraphAnswers]
+      const currentWordInBlank = newAnswers[blankIndex]
+      
+      if (draggedFromArea === 'available') {
+        // Moving from available to blank
+        let newAvailable = availableParagraphWords.filter(word => word !== draggedItem)
+        
+        // If blank is occupied, move its word back to available
+        if (currentWordInBlank) {
+          newAvailable.push(currentWordInBlank)
+        }
+        
+        // Place dragged word in the blank
+        newAnswers[blankIndex] = draggedItem
+        
+        setAvailableParagraphWords(newAvailable)
+        setUserParagraphAnswers(newAnswers)
+      } else if (draggedFromArea === 'table' && draggedFromBlankIndex !== null) {
+        // Moving from one blank to another - swap them
+        if (currentWordInBlank) {
+          // Swap words
+          newAnswers[blankIndex] = draggedItem
+          newAnswers[draggedFromBlankIndex] = currentWordInBlank
+        } else {
+          // Target blank is empty, just move the word
+          newAnswers[blankIndex] = draggedItem
+          newAnswers[draggedFromBlankIndex] = null
+        }
+        
+        setUserParagraphAnswers(newAnswers)
+      }
+      
+      // Reset drag state
+      setDraggedItem(null)
+      setDraggedFromArea(null)
+      setDraggedFromBlankIndex(null)
+    }
+    
+    const handleDropToAvailableParagraph = (e: React.DragEvent) => {
+      e.preventDefault()
+      
+      if (!draggedItem || draggedFromArea !== 'table' || draggedFromBlankIndex === null) return
+      
+      // Moving from blank back to available
+      const newAnswers = [...userParagraphAnswers]
+      newAnswers[draggedFromBlankIndex] = null
+      const newAvailable = [...availableParagraphWords, draggedItem]
+      
+      setUserParagraphAnswers(newAnswers)
+      setAvailableParagraphWords(newAvailable)
+      
+      // Reset drag state
+      setDraggedItem(null)
+      setDraggedFromArea(null)
+      setDraggedFromBlankIndex(null)
+    }
+    
+    const handleCheckParagraph = () => {
+      setParagraphChecked(true)
+    }
+    
+    const handleResetParagraph = () => {
+      const emptyAnswers = Array(paragraph.blanks.length).fill(null)
+      setUserParagraphAnswers(emptyAnswers)
+      
+      const shuffled = [...paragraph.availableWords].sort(() => Math.random() - 0.5)
+      setAvailableParagraphWords(shuffled)
+      setParagraphChecked(false)
+    }
+    
+    const isBlankCorrect = (blankIndex: number) => {
+      if (!paragraphChecked) return null
+      return userParagraphAnswers[blankIndex] === paragraph.blanks[blankIndex]
+    }
+    
+    const getAllBlanksFilled = () => {
+      return userParagraphAnswers.every(answer => answer !== null)
+    }
+    
+    // Split the text into parts with blanks
+    const renderParagraphWithBlanks = () => {
+      const parts = paragraph.text.split('_____')
+      const elements: JSX.Element[] = []
+      
+      parts.forEach((part, index) => {
+        // Add the text part
+        elements.push(
+          <Typography
+            key={`text-${index}`}
+            component="span"
+            sx={{
+              fontSize: '16px',
+              lineHeight: 2,
+              color: darkMode ? '#ddd' : '#374151'
+            }}
+          >
+            {part}
+          </Typography>
+        )
+        
+        // Add the blank (if not the last part)
+        if (index < parts.length - 1) {
+          const blankIndex = index
+          const userAnswer = userParagraphAnswers[blankIndex]
+          
+          elements.push(
+            <Box
+              key={`blank-${index}`}
+              component="span"
+              onDragOver={handleParagraphDragOver}
+              onDrop={(e) => handleDropToBlank(e, blankIndex)}
+              sx={{
+                display: 'inline-block',
+                minWidth: '120px',
+                mx: 1,
+                verticalAlign: 'middle'
+              }}
+            >
+              {userAnswer ? (
+                <Paper
+                  draggable
+                  onDragStart={(e) => handleParagraphDragStart(e, userAnswer, 'blank', blankIndex)}
+                  onDragEnd={handleParagraphDragEnd}
+                  elevation={1}
+                  sx={{
+                    display: 'inline-block',
+                    px: 2,
+                    py: 0.5,
+                    cursor: 'move',
+                    background: paragraphChecked
+                      ? isBlankCorrect(blankIndex)
+                        ? 'rgba(34, 197, 94, 0.1)'
+                        : 'rgba(239, 68, 68, 0.1)'
+                      : darkMode ? '#2a2a2a' : 'white',
+                    border: `2px solid ${
+                      paragraphChecked
+                        ? isBlankCorrect(blankIndex)
+                          ? '#22c55e'
+                          : '#ef4444'
+                        : darkMode ? '#444' : '#e5e5e5'
+                    }`,
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                      transform: 'scale(1.02)',
+                      background: darkMode ? '#333' : '#f5f5f5'
+                    },
+                    '&:active': {
+                      opacity: 0.5
+                    }
+                  }}
+                >
+                  <Typography sx={{ 
+                    color: darkMode ? 'white' : '#1a1a1a',
+                    fontSize: 14,
+                    fontWeight: 500
+                  }}>
+                    {userAnswer}
+                  </Typography>
+                </Paper>
+              ) : (
+                <Box
+                  sx={{
+                    display: 'inline-block',
+                    borderBottom: `2px ${draggedItem ? 'solid' : 'dashed'} ${
+                      draggedItem ? '#3b82f6' : (darkMode ? '#555' : '#999')
+                    }`,
+                    minWidth: '100px',
+                    height: '28px',
+                    background: draggedItem 
+                      ? 'rgba(59, 130, 246, 0.05)' 
+                      : 'transparent',
+                    transition: 'all 0.2s ease',
+                    position: 'relative',
+                    '&::after': {
+                      content: `"[${blankIndex + 1}]"`,
+                      position: 'absolute',
+                      top: '-20px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      fontSize: '10px',
+                      color: darkMode ? '#555' : '#999'
+                    }
+                  }}
+                />
+              )}
+            </Box>
+          )
+        }
+      })
+      
+      return elements
+    }
+    
+    return (
+      <Box sx={{ 
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        background: darkMode ? '#0a0a0a' : '#fafafa'
+      }}>
+        <Box sx={{ 
+          flex: 1,
+          p: 3,
+          overflow: 'auto'
+        }}>
+          <Box sx={{ 
+            width: '100%', 
+            maxWidth: 900,
+            mx: 'auto'
+          }}>
+            {/* Topic indicator */}
+            <Box sx={{ mb: 3, textAlign: 'center' }}>
+              <Typography variant="caption" sx={{ color: darkMode ? '#666' : '#999' }}>
+                Topic: {contentHierarchy[0].children?.flatMap(s => s.children || []).find(c => c.id === selectedSpointId)?.name || 'Select a topic'}
+              </Typography>
+            </Box>
+            
+            {/* Paragraph Title */}
+            <Typography variant="h5" sx={{ 
+              fontWeight: 600,
+              color: darkMode ? 'white' : '#1a1a1a',
+              mb: 3,
+              textAlign: 'center'
+            }}>
+              {paragraph.title}
+            </Typography>
+            
+            {/* Paragraph with blanks */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 4,
+                background: darkMode ? '#1a1a1a' : 'white',
+                border: `1px solid ${darkMode ? '#333' : '#e5e5e5'}`,
+                borderRadius: 2,
+                mb: 3
+              }}
+            >
+              <Box sx={{ lineHeight: 2.5 }}>
+                {renderParagraphWithBlanks()}
+              </Box>
+            </Paper>
+            
+            {/* Available Words */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 3,
+                background: darkMode ? '#1a1a1a' : 'white',
+                border: `1px solid ${darkMode ? '#333' : '#e5e5e5'}`,
+                borderRadius: 2,
+                mb: 3
+              }}
+            >
+              <Typography variant="body2" sx={{ mb: 2, color: darkMode ? '#999' : '#666' }}>
+                Available words:
+              </Typography>
+              <Box 
+                sx={{ 
+                  display: 'flex',
+                  gap: 2,
+                  flexWrap: 'wrap',
+                  minHeight: 60,
+                  p: 2,
+                  border: `2px dashed ${darkMode ? '#444' : '#ddd'}`,
+                  borderRadius: 1,
+                  background: darkMode ? '#0a0a0a' : '#f9f9f9'
+                }}
+                onDragOver={handleParagraphDragOver}
+                onDrop={handleDropToAvailableParagraph}
+              >
+                {availableParagraphWords.length === 0 && (
+                  <Typography sx={{ 
+                    color: darkMode ? '#555' : '#aaa',
+                    fontStyle: 'italic',
+                    width: '100%',
+                    textAlign: 'center'
+                  }}>
+                    All words have been placed
+                  </Typography>
+                )}
+                {availableParagraphWords.map((word, index) => (
+                  <Paper
+                    key={index}
+                    draggable
+                    onDragStart={(e) => handleParagraphDragStart(e, word, 'available')}
+                    onDragEnd={handleParagraphDragEnd}
+                    elevation={1}
+                    sx={{
+                      px: 2,
+                      py: 1,
+                      cursor: 'move',
+                      background: darkMode ? '#2a2a2a' : 'white',
+                      border: `2px solid ${darkMode ? '#444' : '#e5e5e5'}`,
+                      transition: 'all 0.2s ease',
+                      '&:hover': {
+                        background: darkMode ? '#333' : '#f5f5f5',
+                        transform: 'scale(1.02)',
+                        borderColor: darkMode ? '#666' : '#999'
+                      },
+                      '&:active': {
+                        opacity: 0.5
+                      }
+                    }}
+                  >
+                    <Typography sx={{ 
+                      color: darkMode ? 'white' : '#1a1a1a',
+                      fontWeight: 500,
+                      fontSize: 14
+                    }}>
+                      {word}
+                    </Typography>
+                  </Paper>
+                ))}
+              </Box>
+            </Paper>
+            
+            {/* Check/Reset Buttons */}
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+              {!paragraphChecked ? (
+                <Button
+                  variant="contained"
+                  onClick={handleCheckParagraph}
+                  disabled={!getAllBlanksFilled()}
+                  sx={{
+                    background: darkMode ? 'white' : '#000',
+                    color: darkMode ? '#000' : 'white',
+                    textTransform: 'none',
+                    px: 4,
+                    '&:hover': {
+                      background: darkMode ? '#f5f5f5' : '#1a1a1a'
+                    },
+                    '&.Mui-disabled': {
+                      background: darkMode ? '#333' : '#e5e5e5',
+                      color: darkMode ? '#666' : '#999'
+                    }
+                  }}
+                >
+                  Check Answer
+                </Button>
+              ) : (
+                <>
+                  <Button
+                    variant="outlined"
+                    onClick={handleResetParagraph}
+                    sx={{
+                      borderColor: darkMode ? '#666' : '#999',
+                      color: darkMode ? '#999' : '#666',
+                      textTransform: 'none',
+                      px: 4
+                    }}
+                  >
+                    Try Again
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => {
+                      // Move to next topic
+                      const allSpoints = contentHierarchy[0].children?.flatMap(s => s.children || []) || []
+                      const currentIndex = allSpoints.findIndex(s => s.id === currentSpoint)
+                      if (currentIndex < allSpoints.length - 1) {
+                        const nextSpoint = allSpoints[currentIndex + 1]
+                        setCurrentSpoint(nextSpoint.id)
+                        // States will be reset by useEffect
+                      }
+                    }}
+                    sx={{
+                      background: darkMode ? 'white' : '#000',
+                      color: darkMode ? '#000' : 'white',
+                      textTransform: 'none',
+                      px: 4,
+                      '&:hover': {
+                        background: darkMode ? '#f5f5f5' : '#1a1a1a'
+                      }
+                    }}
+                  >
+                    Next Topic
+                  </Button>
+                </>
+              )}
+            </Box>
+            
+            {/* Show correct paragraph when checked */}
+            {paragraphChecked && (
+              <Paper
+                elevation={2}
+                sx={{
+                  p: 3,
+                  mt: 3,
+                  background: darkMode ? '#0d7a2e' : '#e8f5e9',
+                  border: `2px solid #22c55e`,
+                  borderRadius: 2
+                }}
+              >
+                <Typography variant="h6" sx={{ mb: 2, color: darkMode ? 'white' : '#1b5e20', fontWeight: 600 }}>
+                  ✓ Correct Answer:
+                </Typography>
+                <Box sx={{ lineHeight: 2 }}>
+                  {paragraph.text.split('_____').map((part: string, index: number) => (
+                    <React.Fragment key={index}>
+                      <Typography
+                        component="span"
+                        sx={{
+                          fontSize: '15px',
+                          color: darkMode ? '#ddd' : '#1b5e20'
+                        }}
+                      >
+                        {part}
+                      </Typography>
+                      {index < paragraph.blanks.length && (
+                        <Typography
+                          component="span"
+                          sx={{
+                            fontSize: '15px',
+                            fontWeight: 600,
+                            color: '#22c55e',
+                            mx: 0.5,
+                            px: 1.5,
+                            py: 0.25,
+                            background: darkMode ? 'rgba(34, 197, 94, 0.2)' : 'rgba(34, 197, 94, 0.1)',
+                            borderRadius: 1,
+                            border: '1px solid #22c55e'
+                          }}
+                        >
+                          {paragraph.blanks[index]}
+                        </Typography>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </Box>
+                
+                {/* Score display */}
+                <Box sx={{ mt: 2, textAlign: 'center' }}>
+                  <Typography variant="body2" sx={{ 
+                    color: darkMode ? 'white' : '#1b5e20',
+                    fontWeight: 500
+                  }}>
+                    {userParagraphAnswers.filter((answer, index) => 
+                      answer === paragraph.blanks[index]
+                    ).length} / {paragraph.blanks.length} correct blanks
+                  </Typography>
+                </Box>
+              </Paper>
+            )}
+          </Box>
+        </Box>
+        
+        {/* Bottom toolbar */}
+        {renderToolbar(false)}
+      </Box>
+    )
+  }
+
+  const renderVennDiagramMode = () => {
+    const selectedSpointId = currentSpoint || 'block-1'
+    const vennDiagram = spointVennDiagrams[selectedSpointId] || spointVennDiagrams['block-1']
+    
+    if (!vennDiagram) {
+      return (
+        <Box sx={{ 
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          background: darkMode ? '#0a0a0a' : '#fafafa',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          <Typography variant="h6" sx={{ color: darkMode ? '#666' : '#999' }}>
+            Please select a topic from the sidebar
+          </Typography>
+        </Box>
+      )
+    }
+    
+    const handleVennDragStart = (e: React.DragEvent, item: string, region: string) => {
+      e.dataTransfer.effectAllowed = 'move'
+      setDraggedItem(item)
+      setDraggedFromRegion(region)
+    }
+    
+    const handleVennDragOver = (e: React.DragEvent) => {
+      e.preventDefault()
+      e.dataTransfer.dropEffect = 'move'
+    }
+    
+    const handleVennDragEnd = () => {
+      setDraggedItem(null)
+      setDraggedFromRegion(null)
+    }
+    
+    // Calculate which region a point belongs to based on circle positions
+    const getRegionFromPoint = (x: number, y: number, layout: any) => {
+      const inCircle = (cx: number, cy: number, r: number, px: number, py: number) => {
+        const distance = Math.sqrt((px - cx) ** 2 + (py - cy) ** 2)
+        return distance <= r
+      }
+      
+      const insideCircles: string[] = []
+      vennDiagram.circles.forEach((circle: any, index: number) => {
+        if (inCircle(layout.circles[index].cx, layout.circles[index].cy, layout.radius, x, y)) {
+          insideCircles.push(circle.id)
+        }
+      })
+      
+      if (insideCircles.length === 0) {
+        return null  // Not in any circle - invalid drop
+      } else if (insideCircles.length === 1) {
+        return insideCircles[0]
+      } else {
+        // In overlap region
+        return insideCircles.sort().join('-')
+      }
+    }
+    
+    const handleDropOnDiagram = (e: React.DragEvent) => {
+      e.preventDefault()
+      e.stopPropagation()
+      
+      if (!draggedItem) return
+      
+      // Get the drop position relative to the container
+      const rect = e.currentTarget.getBoundingClientRect()
+      const svgRect = e.currentTarget.querySelector('svg')?.getBoundingClientRect()
+      
+      if (!svgRect) return
+      
+      // Calculate position relative to SVG
+      const x = ((e.clientX - svgRect.left) / svgRect.width) * layout.svgWidth
+      const y = ((e.clientY - svgRect.top) / svgRect.height) * layout.svgHeight
+      
+      const targetRegion = getRegionFromPoint(x, y, layout)
+      
+      // Prevent dropping outside circles
+      if (!targetRegion) return
+      
+      const newPlacements = { ...vennPlacements }
+      
+      if (draggedFromRegion === 'available') {
+        // Moving from available to a region
+        const newAvailable = availableVennItems.filter(item => item !== draggedItem)
+        newPlacements[targetRegion] = [...(newPlacements[targetRegion] || []), draggedItem]
+        
+        setAvailableVennItems(newAvailable)
+        setVennPlacements(newPlacements)
+      } else if (draggedFromRegion && draggedFromRegion !== 'available') {
+        // Moving from one region to another
+        newPlacements[draggedFromRegion] = newPlacements[draggedFromRegion].filter(item => item !== draggedItem)
+        newPlacements[targetRegion] = [...(newPlacements[targetRegion] || []), draggedItem]
+        
+        setVennPlacements(newPlacements)
+      }
+      
+      // Reset drag state
+      setDraggedItem(null)
+      setDraggedFromRegion(null)
+    }
+    
+    const handleDropToRegion = (e: React.DragEvent, targetRegion: string) => {
+      e.preventDefault()
+      e.stopPropagation()
+      
+      if (!draggedItem) return
+      
+      const newPlacements = { ...vennPlacements }
+      
+      if (draggedFromRegion === 'available') {
+        // Moving from available to a specific region
+        const newAvailable = availableVennItems.filter(item => item !== draggedItem)
+        newPlacements[targetRegion] = [...(newPlacements[targetRegion] || []), draggedItem]
+        
+        setAvailableVennItems(newAvailable)
+        setVennPlacements(newPlacements)
+      } else if (draggedFromRegion && draggedFromRegion !== 'available') {
+        // Moving from one region to another
+        newPlacements[draggedFromRegion] = newPlacements[draggedFromRegion].filter(item => item !== draggedItem)
+        newPlacements[targetRegion] = [...(newPlacements[targetRegion] || []), draggedItem]
+        
+        setVennPlacements(newPlacements)
+      }
+      
+      // Reset drag state
+      setDraggedItem(null)
+      setDraggedFromRegion(null)
+    }
+    
+    const handleDropToAvailableVenn = (e: React.DragEvent) => {
+      e.preventDefault()
+      
+      if (!draggedItem || !draggedFromRegion || draggedFromRegion === 'available') return
+      
+      // Moving from a region back to available
+      const newPlacements = { ...vennPlacements }
+      newPlacements[draggedFromRegion] = newPlacements[draggedFromRegion].filter(item => item !== draggedItem)
+      const newAvailable = [...availableVennItems, draggedItem]
+      
+      setVennPlacements(newPlacements)
+      setAvailableVennItems(newAvailable)
+      
+      // Reset drag state
+      setDraggedItem(null)
+      setDraggedFromRegion(null)
+    }
+    
+    const handleCheckVenn = () => {
+      setVennChecked(true)
+    }
+    
+    const handleResetVenn = () => {
+      // Reset all placements
+      const emptyPlacements: Record<string, string[]> = {}
+      Object.keys(vennPlacements).forEach(key => {
+        emptyPlacements[key] = []
+      })
+      setVennPlacements(emptyPlacements)
+      
+      // Reshuffle items
+      const shuffled = [...vennDiagram.availableItems].sort(() => Math.random() - 0.5)
+      setAvailableVennItems(shuffled)
+      setVennChecked(false)
+    }
+    
+    const isItemInCorrectRegion = (item: string, region: string) => {
+      if (!vennChecked) return null
+      const correctItems = vennDiagram.correctPlacements[region] || []
+      return correctItems.includes(item)
+    }
+    
+    const getAllItemsPlaced = () => {
+      return availableVennItems.length === 0
+    }
+    
+    // Calculate positions for circles with proper spacing
+    const getCircleLayout = () => {
+      const numCircles = vennDiagram.circles.length
+      const circleRadius = 200  // Increased for better drop zones
+      const svgWidth = 900
+      const svgHeight = 600
+      const centerX = svgWidth / 2
+      const centerY = svgHeight / 2
+      
+      if (numCircles === 2) {
+        // Two circles with 35% overlap
+        const spacing = circleRadius * 1.3  // 35% overlap
+        return {
+          circles: [
+            { cx: centerX - spacing/2, cy: centerY, label: { x: centerX - spacing/2 - circleRadius*0.6, y: centerY - circleRadius - 30 } },
+            { cx: centerX + spacing/2, cy: centerY, label: { x: centerX + spacing/2 + circleRadius*0.6, y: centerY - circleRadius - 30 } }
+          ],
+          radius: circleRadius,
+          svgWidth,
+          svgHeight
+        }
+      } else if (numCircles === 3) {
+        // Three circles in triangle formation with proper overlap
+        const spacing = circleRadius * 1.2  // 40% overlap
+        return {
+          circles: [
+            { cx: centerX - spacing*0.6, cy: centerY - spacing*0.35, label: { x: centerX - spacing*0.6, y: centerY - spacing*0.35 - circleRadius - 30 } },
+            { cx: centerX + spacing*0.6, cy: centerY - spacing*0.35, label: { x: centerX + spacing*0.6, y: centerY - spacing*0.35 - circleRadius - 30 } },
+            { cx: centerX, cy: centerY + spacing*0.5, label: { x: centerX, y: centerY + spacing*0.5 + circleRadius + 40 } }
+          ],
+          radius: circleRadius,
+          svgWidth,
+          svgHeight
+        }
+      }
+      return { circles: [], radius: 200, svgWidth: 900, svgHeight: 600 }
+    }
+    
+    const layout = getCircleLayout()
+    
+    return (
+      <Box sx={{ 
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        background: darkMode ? '#0a0a0a' : '#fafafa'
+      }}>
+        <Box sx={{ 
+          flex: 1,
+          p: 3,
+          overflow: 'auto'
+        }}>
+          <Box sx={{ 
+            width: '100%', 
+            maxWidth: 1000,
+            mx: 'auto'
+          }}>
+            {/* Topic indicator */}
+            <Box sx={{ mb: 3, textAlign: 'center' }}>
+              <Typography variant="caption" sx={{ color: darkMode ? '#666' : '#999' }}>
+                Topic: {contentHierarchy[0].children?.flatMap(s => s.children || []).find(c => c.id === selectedSpointId)?.name || 'Select a topic'}
+              </Typography>
+            </Box>
+            
+            {/* Venn Title */}
+            <Typography variant="h5" sx={{ 
+              fontWeight: 600,
+              color: darkMode ? 'white' : '#1a1a1a',
+              mb: 3,
+              textAlign: 'center'
+            }}>
+              {vennDiagram.title}
+            </Typography>
+            
+            {/* Venn Diagram Area */}
+            <Paper
+              elevation={0}
+              onDragOver={handleVennDragOver}
+              onDrop={handleDropOnDiagram}
+              sx={{
+                p: 3,
+                background: darkMode ? '#1a1a1a' : 'white',
+                border: `1px solid ${darkMode ? '#333' : '#e5e5e5'}`,
+                borderRadius: 2,
+                mb: 3,
+                position: 'relative',
+                minHeight: 700,
+                height: 700,
+                overflow: 'hidden'
+              }}
+            >
+              {/* SVG for circles */}
+              <svg
+                width={layout.svgWidth}
+                height={layout.svgHeight}
+                style={{
+                  position: 'absolute',
+                  top: '50px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  pointerEvents: 'none'
+                }}
+              >
+                <defs>
+                  {vennDiagram.circles.map((circle: any, index: number) => (
+                    <linearGradient key={circle.id} id={`gradient-${circle.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: circle.color, stopOpacity: 0.15 }} />
+                      <stop offset="100%" style={{ stopColor: circle.color, stopOpacity: 0.3 }} />
+                    </linearGradient>
+                  ))}
+                </defs>
+                {vennDiagram.circles.map((circle: any, index: number) => (
+                  <g key={circle.id}>
+                    <circle
+                      cx={layout.circles[index].cx}
+                      cy={layout.circles[index].cy}
+                      r={layout.radius}
+                      fill={`url(#gradient-${circle.id})`}
+                      stroke={circle.color}
+                      strokeWidth="3"
+                      strokeOpacity="0.6"
+                      opacity="0.9"
+                    />
+                    <text
+                      x={layout.circles[index].label.x}
+                      y={layout.circles[index].label.y}
+                      textAnchor="middle"
+                      fill={circle.color}
+                      fontSize="20"
+                      fontWeight="700"
+                      style={{ textShadow: '0 1px 2px rgba(0,0,0,0.1)' }}
+                    >
+                      {circle.label}
+                    </text>
+                  </g>
+                ))}
+              </svg>
+              
+              {/* Display items in their regions */}
+              {Object.entries(vennPlacements).map(([region, items]) => {
+                if (region === 'outside' || !items || items.length === 0) return null
+                
+                // Calculate display position based on region and current layout
+                let displayX = layout.svgWidth / 2
+                let displayY = layout.svgHeight / 2
+                
+                // Get region center based on actual circle positions
+                if (region === vennDiagram.circles[0]?.id) {
+                  // First circle only (no overlap)
+                  displayX = layout.circles[0].cx - layout.radius * 0.4
+                  displayY = layout.circles[0].cy
+                } else if (region === vennDiagram.circles[1]?.id) {
+                  // Second circle only (no overlap)
+                  displayX = layout.circles[1].cx + layout.radius * 0.4
+                  displayY = layout.circles[1].cy
+                } else if (region === vennDiagram.circles[2]?.id) {
+                  // Third circle only (for 3-circle)
+                  displayX = layout.circles[2].cx
+                  displayY = layout.circles[2].cy + layout.radius * 0.4
+                } else if (region.includes('-')) {
+                  // Overlap regions - calculate center between circles
+                  const parts = region.split('-')
+                  const circleIndices = parts.map(id => 
+                    vennDiagram.circles.findIndex((c: any) => c.id === id)
+                  ).filter(idx => idx !== -1)
+                  
+                  if (circleIndices.length === 2) {
+                    // Two-way overlap: average the positions
+                    displayX = (layout.circles[circleIndices[0]].cx + layout.circles[circleIndices[1]].cx) / 2
+                    displayY = (layout.circles[circleIndices[0]].cy + layout.circles[circleIndices[1]].cy) / 2
+                  } else if (circleIndices.length === 3) {
+                    // Three-way overlap: center of all three
+                    displayX = circleIndices.reduce((sum, idx) => sum + layout.circles[idx].cx, 0) / 3
+                    displayY = circleIndices.reduce((sum, idx) => sum + layout.circles[idx].cy, 0) / 3
+                  }
+                }
+                
+                return (
+                  <Box
+                    key={region}
+                    sx={{
+                      position: 'absolute',
+                      left: `${displayX}px`,
+                      top: `${displayY + 50}px`,  // Account for SVG top offset
+                      transform: 'translate(-50%, -50%)',
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: 0.8,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      maxWidth: region.includes('-') ? '150px' : '180px',
+                      zIndex: region.includes('-') ? 20 : 10
+                    }}
+                  >
+                    {items.map((item, index) => (
+                      <Paper
+                        key={index}
+                        draggable
+                        onDragStart={(e) => handleVennDragStart(e, item, region)}
+                        onDragEnd={handleVennDragEnd}
+                        elevation={2}
+                        sx={{
+                          px: 1.5,
+                          py: 0.5,
+                          cursor: 'move',
+                          background: vennChecked
+                            ? isItemInCorrectRegion(item, region)
+                              ? 'rgba(34, 197, 94, 0.95)'
+                              : 'rgba(239, 68, 68, 0.95)'
+                            : 'rgba(255, 255, 255, 0.98)',
+                          border: `2px solid ${
+                            vennChecked
+                              ? isItemInCorrectRegion(item, region)
+                                ? '#22c55e'
+                                : '#ef4444'
+                              : darkMode ? '#555' : '#bbb'
+                          }`,
+                          borderRadius: 1,
+                          transition: 'all 0.2s ease',
+                          '&:hover': {
+                            transform: 'scale(1.08)',
+                            zIndex: 100,
+                            boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+                          },
+                          '&:active': {
+                            opacity: 0.7
+                          }
+                        }}
+                      >
+                        <Typography sx={{ 
+                          fontSize: 12, 
+                          color: vennChecked ? 'white' : '#111',
+                          fontWeight: 500,
+                          textAlign: 'center',
+                          whiteSpace: 'nowrap'
+                        }}>
+                          {item}
+                        </Typography>
+                      </Paper>
+                    ))}
+                  </Box>
+                )
+              })}
+              
+            </Paper>
+            
+            {/* Available Items */}
+            <Paper
+              elevation={0}
+              sx={{
+                p: 3,
+                background: darkMode ? '#1a1a1a' : 'white',
+                border: `1px solid ${darkMode ? '#333' : '#e5e5e5'}`,
+                borderRadius: 2,
+                mb: 3
+              }}
+            >
+              <Typography variant="body2" sx={{ mb: 2, color: darkMode ? '#999' : '#666' }}>
+                Available items:
+              </Typography>
+              <Box 
+                sx={{ 
+                  display: 'flex',
+                  gap: 2,
+                  flexWrap: 'wrap',
+                  minHeight: 60,
+                  p: 2,
+                  border: `2px dashed ${darkMode ? '#444' : '#ddd'}`,
+                  borderRadius: 1,
+                  background: darkMode ? '#0a0a0a' : '#f9f9f9'
+                }}
+                onDragOver={handleVennDragOver}
+                onDrop={handleDropToAvailableVenn}
+              >
+                {availableVennItems.length === 0 && (
+                  <Typography sx={{ 
+                    color: darkMode ? '#555' : '#aaa',
+                    fontStyle: 'italic',
+                    width: '100%',
+                    textAlign: 'center'
+                  }}>
+                    All items have been placed
+                  </Typography>
+                )}
+                {availableVennItems.map((item, index) => (
+                  <Paper
+                    key={index}
+                    draggable
+                    onDragStart={(e) => handleVennDragStart(e, item, 'available')}
+                    onDragEnd={handleVennDragEnd}
+                    elevation={1}
+                    sx={{
+                      px: 2,
+                      py: 1,
+                      cursor: 'move',
+                      background: darkMode ? '#2a2a2a' : 'white',
+                      border: `2px solid ${darkMode ? '#444' : '#e5e5e5'}`,
+                      transition: 'all 0.2s ease',
+                      '&:hover': {
+                        background: darkMode ? '#333' : '#f5f5f5',
+                        transform: 'scale(1.02)',
+                        borderColor: darkMode ? '#666' : '#999'
+                      },
+                      '&:active': {
+                        opacity: 0.5
+                      }
+                    }}
+                  >
+                    <Typography sx={{ 
+                      color: darkMode ? 'white' : '#1a1a1a',
+                      fontWeight: 500,
+                      fontSize: 13
+                    }}>
+                      {item}
+                    </Typography>
+                  </Paper>
+                ))}
+              </Box>
+            </Paper>
+            
+            {/* Check/Reset Buttons */}
+            <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+              {!vennChecked ? (
+                <Button
+                  variant="contained"
+                  onClick={handleCheckVenn}
+                  disabled={!getAllItemsPlaced()}
+                  sx={{
+                    background: darkMode ? 'white' : '#000',
+                    color: darkMode ? '#000' : 'white',
+                    textTransform: 'none',
+                    px: 4,
+                    '&:hover': {
+                      background: darkMode ? '#f5f5f5' : '#1a1a1a'
+                    },
+                    '&.Mui-disabled': {
+                      background: darkMode ? '#333' : '#e5e5e5',
+                      color: darkMode ? '#666' : '#999'
+                    }
+                  }}
+                >
+                  Check Answer
+                </Button>
+              ) : (
+                <>
+                  <Button
+                    variant="outlined"
+                    onClick={handleResetVenn}
+                    sx={{
+                      borderColor: darkMode ? '#666' : '#999',
+                      color: darkMode ? '#999' : '#666',
+                      textTransform: 'none',
+                      px: 4
+                    }}
+                  >
+                    Try Again
+                  </Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => {
+                      // Move to next topic
+                      const allSpoints = contentHierarchy[0].children?.flatMap(s => s.children || []) || []
+                      const currentIndex = allSpoints.findIndex(s => s.id === currentSpoint)
+                      if (currentIndex < allSpoints.length - 1) {
+                        const nextSpoint = allSpoints[currentIndex + 1]
+                        setCurrentSpoint(nextSpoint.id)
+                        // States will be reset by useEffect
+                      }
+                    }}
+                    sx={{
+                      background: darkMode ? 'white' : '#000',
+                      color: darkMode ? '#000' : 'white',
+                      textTransform: 'none',
+                      px: 4,
+                      '&:hover': {
+                        background: darkMode ? '#f5f5f5' : '#1a1a1a'
+                      }
+                    }}
+                  >
+                    Next Topic
+                  </Button>
+                </>
+              )}
+            </Box>
+            
+            {/* Show correct placements when checked */}
+            {vennChecked && (
+              <Paper
+                elevation={2}
+                sx={{
+                  p: 3,
+                  mt: 3,
+                  background: darkMode ? '#0d7a2e' : '#e8f5e9',
+                  border: `2px solid #22c55e`,
+                  borderRadius: 2
+                }}
+              >
+                <Typography variant="h6" sx={{ mb: 2, color: darkMode ? 'white' : '#1b5e20', fontWeight: 600 }}>
+                  ✓ Correct Placements:
+                </Typography>
+                {Object.entries(vennDiagram.correctPlacements).map(([region, items]: [string, any]) => (
+                  <Box key={region} sx={{ mb: 2 }}>
+                    <Typography variant="subtitle2" sx={{ 
+                      color: darkMode ? '#22c55e' : '#1b5e20',
+                      fontWeight: 600,
+                      mb: 1
+                    }}>
+                      {region === 'outside' ? 'Outside (doesn\'t belong)' : 
+                       region.includes('-') ? `Overlap: ${region.split('-').join(' ∩ ')}` :
+                       vennDiagram.circles.find((c: any) => c.id === region)?.label || region}
+                    </Typography>
+                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {items.map((item: string, index: number) => (
+                        <Paper
+                          key={index}
+                          sx={{
+                            px: 1.5,
+                            py: 0.5,
+                            background: darkMode ? '#1a1a1a' : 'white',
+                            border: '1px solid #22c55e'
+                          }}
+                        >
+                          <Typography sx={{ fontSize: 12, color: '#22c55e' }}>
+                            {item}
+                          </Typography>
+                        </Paper>
+                      ))}
+                    </Box>
+                  </Box>
+                ))}
+                
+                {/* Score display */}
+                <Box sx={{ mt: 2, textAlign: 'center' }}>
+                  <Typography variant="body2" sx={{ 
+                    color: darkMode ? 'white' : '#1b5e20',
+                    fontWeight: 500
+                  }}>
+                    {Object.entries(vennPlacements).reduce((acc, [region, items]) => {
+                      return acc + items.filter(item => 
+                        vennDiagram.correctPlacements[region]?.includes(item)
+                      ).length
+                    }, 0)} / {vennDiagram.availableItems.length} correctly placed
                   </Typography>
                 </Box>
               </Paper>
