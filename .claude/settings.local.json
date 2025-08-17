@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "Bash(^C)",
+      "Bash(dir:*)",
+      "Bash(touch:*)",
+      "Bash(ls:*)",
+      "Bash(curl:*)",
+      "Bash(npx vite:*)",
+      "Bash(pkill:*)",
+      "Bash(npm run build:*)",
+      "Bash(find:*)",
+      "Bash(npm install:*)",
+      "Bash(true)",
+      "Bash(taskkill:*)",
+      "Bash(mv:*)",
+      "Bash(npm run typecheck:*)",
+      "Bash(npx tsc:*)",
+      "Bash(rm:*)",
+      "Bash(npm start)",
+      "Bash(cp:*)",
+      "Bash(tree:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote remove:*)",
+      "Bash(npm run:*)",
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm outdated)",
+      "Bash(for file in *.tsx)",
+      "Bash(done)",
+      "Bash(start chrome \"file:///C:/Users/perso/Desktop/FFURBIO/furbio-frontend/test-auth.html\")",
+      "Bash(node:*)",
+      "Bash(grep:*)"
+    ],
+    "deny": [],
+    "additionalDirectories": [
+      "C:\\Users\\perso\\Desktop\\Furbio V3"
+    ]
+  }
+}
