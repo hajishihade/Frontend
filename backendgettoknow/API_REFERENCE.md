@@ -2,9 +2,7 @@
 
 **Version**: 3.1  
 **Base URL**: `http://localhost:3002/api/v1`  
-**Last Updated**: 2025-01-06  
-**API Endpoints**: 315+  
-**Test Coverage**: 97.5%
+**Last Updated**: 2024-11-XX
 
 ## Available Route Modules (30+)
 
@@ -520,35 +518,6 @@ GET /notifications
 POST /notifications/mark-read
 GET /notifications/preferences
 PUT /notifications/preferences
-```
-
-### Learning Stories (v3.1)
-```http
-# Story Management
-POST /stories                     # Create a new story
-GET /stories                      # List user's stories
-GET /stories/{id}                 # Get story details with metrics
-PUT /stories/{id}                 # Update story
-DELETE /stories/{id}              # Delete (soft) story
-
-# Story Progress
-GET /stories/{id}/progress        # Get story progress details
-GET /stories/{id}/impact          # Get impact analysis between sessions
-GET /stories/{id}/timeline        # Get SPoint timeline across sessions
-
-# Session-Story Association
-POST /sessions                    # Create session with optional storyId
-{
-  "name": "Session Name",
-  "description": "Description",
-  "storyId": "uuid"              # Optional - links session to story
-}
-
-# Metric Snapshots (automatic)
-# Snapshots are created automatically at:
-# - Session expansion (start)
-# - Session activation (resume)
-# - Session completion (complete)
 ```
 
 ## Rate Limits

@@ -36,7 +36,9 @@
       "Bash(done)",
       "Bash(start chrome \"file:///C:/Users/perso/Desktop/FFURBIO/furbio-frontend/test-auth.html\")",
       "Bash(node:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(git config:*)",
+      "Bash(start chrome \"file:///C:/Users/perso/Desktop/FFURBIO/test-spoints-api.html\")"
     ],
     "deny": [],
     "additionalDirectories": [
