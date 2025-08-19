@@ -38,11 +38,18 @@
       "Bash(node:*)",
       "Bash(grep:*)",
       "Bash(git config:*)",
-      "Bash(start chrome \"file:///C:/Users/perso/Desktop/FFURBIO/test-spoints-api.html\")"
+      "Bash(start chrome \"file:///C:/Users/perso/Desktop/FFURBIO/test-spoints-api.html\")",
+      "Bash(start chrome \"http://localhost:5178\")",
+      "Bash(start chrome \"file:///C:/Users/perso/Desktop/FFURBIO/test-refactored-episode.html\")",
+      "Bash(start chrome \"http://localhost:5178/login\")",
+      "Bash(start chrome \"http://localhost:5178/episode/b13f044b-c89a-4abc-9955-9376dcb2f355\")",
+      "Bash(start chrome:*)",
+      "Bash(sed:*)"
     ],
     "deny": [],
     "additionalDirectories": [
-      "C:\\Users\\perso\\Desktop\\Furbio V3"
+      "C:\\Users\\perso\\Desktop\\Furbio V3",
+      "C:\\mnt\\c\\Users\\perso\\Desktop\\FFURBIO"
     ]
   }
 }
